@@ -1,0 +1,38 @@
+# ── SECRET FILES (MOST CRITICAL) ──
+# Bots scan GitHub 24/7 for leaked secrets. These NEVER get pushed.
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# ── Python ──
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# ── Node.js / React ──
+node_modules/
+dist/
+.vite/
+
+# ── Database (contains user data) ──
+*.db
+*.sqlite3
+
+# ── IDE / Editor ──
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ── Logs & Sensitive uploads ──
+*.log
+tmp/
+temp/
+uploads/

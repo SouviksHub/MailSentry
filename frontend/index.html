@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Security headers via meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: https:;
+        font-src 'self';
+        connect-src 'self' http://localhost:8000;
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+      "
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Favicon & Meta -->
+    <link rel="icon" type="image/svg+xml" href="/shield.svg" />
+    <meta name="description" content="MailSentry — Enterprise email phishing analysis platform" />
+    <meta name="theme-color" content="#0d1117" />
+
+    <title>MailSentry</title>
+  </head>
+  <body class="bg-gray-950 text-gray-100 antialiased">
+    <!-- No-JS fallback -->
+    <noscript>
+      <div style="padding:2rem;text-align:center;color:#f87171;">
+        MailSentry requires JavaScript to run. Please enable it in your browser settings.
+      </div>
+    </noscript>
+
+    <!-- React root -->
+    <div id="root"></div>
+
+    <!-- Vite injects the JS bundle here -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -81,7 +81,7 @@ npm run dev
 ### JavaScript/React (Frontend)
 - Use functional components with hooks
 - Follow ESLint configuration
-- Use Tailwind CSS for styling (no inline styles)
+- Use Material UI (MUI) components and sx prop for styling (no inline styles)
 
 ## Security
 

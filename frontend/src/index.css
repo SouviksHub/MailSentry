@@ -1,77 +1,62 @@
-/* Tailwind CSS directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* MailSentry Global Styles — Material UI baseline */
 
-/* Custom base layer overrides */
-@layer base {
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  /* Default body styling — dark theme */
-  body {
-    @apply bg-gray-950 text-gray-100 min-h-screen;
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-  }
-
-  /* Focus ring for accessibility (keyboard users) */
-  *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-500 rounded;
-  }
-
-  /* Remove default focus for mouse users */
-  *:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  /* Scrollbar styling (Webkit browsers) */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-900;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-700 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-600;
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Reusable component layer */
-@layer components {
-  /* Threat level badge variants */
-  .badge-safe {
-    @apply bg-threat-safe/15 text-threat-safe border border-threat-safe/30 
-           px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
+/* Reset body for MUI dark theme */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #0a0e14;
+  color: #e0e0e0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .badge-caution {
-    @apply bg-threat-caution/15 text-threat-caution border border-threat-caution/30 
-           px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
+/* Root container */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  .badge-dangerous {
-    @apply bg-threat-dangerous/15 text-threat-dangerous border border-threat-dangerous/30 
-           px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
-  .badge-critical {
-    @apply bg-threat-critical/15 text-threat-critical border border-threat-critical/30 
-           px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
+*:focus:not(:focus-visible) {
+  outline: none;
+}
 
-  /* Card component */
-  .card {
-    @apply bg-gray-900 border border-gray-800 rounded-xl p-6 
-           shadow-lg shadow-black/20;
-  }
+/* Custom scrollbar (Webkit) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #ffffff;
 }

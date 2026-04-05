@@ -1,142 +1,226 @@
 import { Routes, Route } from "react-router-dom";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Chip from "@mui/material/Chip";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import ShieldIcon from "@mui/icons-material/Shield";
+import SecurityIcon from "@mui/icons-material/Security";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import DangerousIcon from "@mui/icons-material/Dangerous";
+import BlockIcon from "@mui/icons-material/Block";
 
-/**
- * App — Root component
- * Handles top-level routing and layout.
- * Pages will be added as the app grows.
- */
+/* -------- Dark Theme -------- */
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: { main: "#3b82f6" },
+    secondary: { main: "#8b5cf6" },
+    background: {
+      default: "#0a0e14",
+      paper: "#111827",
+    },
+    success: { main: "#22c55e" },
+    warning: { main: "#f59e0b" },
+    error: { main: "#ef4444" },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h1: { fontWeight: 800 },
+    h2: { fontWeight: 700 },
+  },
+  shape: { borderRadius: 12 },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: { textTransform: "none", fontWeight: 600 },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: { backgroundImage: "none" },
+      },
+    },
+  },
+});
+
+/* -------- App Root -------- */
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 border-b border-gray-800 bg-gray-950/80 backdrop-blur-md">
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5">
-            <span className="text-2xl" role="img" aria-label="shield">
-              🛡️
-            </span>
-            <span className="text-lg font-bold tracking-tight text-white">
-              MailSentry
-            </span>
-          </a>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        {/* Navbar */}
+        <AppBar
+          position="sticky"
+          elevation={0}
+          sx={{
+            bgcolor: "rgba(10, 14, 20, 0.85)",
+            backdropFilter: "blur(12px)",
+            borderBottom: "1px solid",
+            borderColor: "divider",
+          }}
+        >
+          <Container maxWidth="lg">
+            <Toolbar disableGutters sx={{ gap: 2 }}>
+              <ShieldIcon sx={{ color: "primary.main", fontSize: 28 }} />
+              <Typography variant="h6" sx={{ fontWeight: 700, flexGrow: { xs: 1, sm: 0 }, mr: 4 }}>
+                MailSentry
+              </Typography>
 
-          {/* Nav links — placeholder for future pages */}
-          <div className="hidden items-center gap-6 sm:flex">
-            <a
-              href="/dashboard"
-              className="text-sm font-medium text-gray-400 transition-colors hover:text-white"
-            >
-              Dashboard
-            </a>
-            <a
-              href="/analyse"
-              className="text-sm font-medium text-gray-400 transition-colors hover:text-white"
-            >
-              Analyse
-            </a>
-            <a
-              href="/reports"
-              className="text-sm font-medium text-gray-400 transition-colors hover:text-white"
-            >
-              Reports
-            </a>
-          </div>
+              <Stack direction="row" spacing={1} sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+                <Button color="inherit" href="/dashboard" sx={{ color: "grey.400" }}>
+                  Dashboard
+                </Button>
+                <Button color="inherit" href="/analyse" sx={{ color: "grey.400" }}>
+                  Analyse
+                </Button>
+                <Button color="inherit" href="/reports" sx={{ color: "grey.400" }}>
+                  Reports
+                </Button>
+              </Stack>
 
-          {/* Auth button placeholder */}
-          <button
-            type="button"
-            className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950"
-          >
-            Sign In
-          </button>
-        </nav>
-      </header>
+              <Button variant="contained" size="small">
+                Sign In
+              </Button>
+            </Toolbar>
+          </Container>
+        </AppBar>
 
-      {/* Main content area */}
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+        {/* Main Content */}
+        <Box component="main" sx={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Box>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-800 py-6">
-        <div className="mx-auto max-w-7xl px-4 text-center text-sm text-gray-500 sm:px-6 lg:px-8">
-          <p>
-            &copy; {new Date().getFullYear()} MailSentry &mdash; Enterprise
-            Phishing Analysis Platform
-          </p>
-        </div>
-      </footer>
-    </div>
+        {/* Footer */}
+        <Box
+          component="footer"
+          sx={{
+            borderTop: "1px solid",
+            borderColor: "divider",
+            py: 3,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="body2" color="text.secondary">
+            &copy; {new Date().getFullYear()} MailSentry &mdash; Enterprise Phishing Analysis Platform
+          </Typography>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
 
-/* ─── Inline page components (will be extracted to /pages later) ───── */
-
+/* -------- Home Page -------- */
 function HomePage() {
-  return (
-    <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-        Detect phishing.{" "}
-        <span className="text-brand-500">Protect your team.</span>
-      </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-        MailSentry analyses emails in real time using multi-source threat
-        intelligence. Neutralise dangerous links before they reach your inbox.
-      </p>
+  const threatLevels = [
+    { label: "Safe", color: "success", icon: <SecurityIcon />, desc: "No threats" },
+    { label: "Caution", color: "warning", icon: <WarningAmberIcon />, desc: "Review needed" },
+    { label: "Dangerous", color: "error", icon: <DangerousIcon />, desc: "Link defanged" },
+    { label: "Critical", color: "error", icon: <BlockIcon />, desc: "Blocked & logged" },
+  ];
 
-      <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a
+  return (
+    <Container maxWidth="md" sx={{ py: 10, textAlign: "center" }}>
+      {/* Hero */}
+      <Typography variant="h2" component="h1" gutterBottom sx={{ fontSize: { xs: "2.5rem", md: "3.5rem" } }}>
+        Detect phishing.{" "}
+        <Box component="span" sx={{ color: "primary.main" }}>
+          Protect your team.
+        </Box>
+      </Typography>
+
+      <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 600, mx: "auto", mb: 5, fontWeight: 400 }}>
+        MailSentry analyses emails in real time using multi-source threat intelligence.
+        Neutralise dangerous links before they reach your inbox.
+      </Typography>
+
+      {/* CTA Buttons */}
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center" sx={{ mb: 8 }}>
+        <Button
+          variant="contained"
+          size="large"
           href="/analyse"
-          className="inline-flex items-center rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:bg-brand-700 hover:shadow-brand-600/40"
+          sx={{
+            px: 4,
+            py: 1.5,
+            boxShadow: "0 4px 20px rgba(59, 130, 246, 0.25)",
+            "&:hover": { boxShadow: "0 6px 30px rgba(59, 130, 246, 0.4)" },
+          }}
         >
           Analyse an Email
-        </a>
-        <a
-          href="/dashboard"
-          className="inline-flex items-center rounded-lg border border-gray-700 bg-gray-900 px-6 py-3 text-sm font-semibold text-gray-300 transition-all hover:border-gray-600 hover:text-white"
-        >
+        </Button>
+        <Button variant="outlined" size="large" href="/dashboard" sx={{ px: 4, py: 1.5 }}>
           View Dashboard
-        </a>
-      </div>
+        </Button>
+      </Stack>
 
-      {/* Threat level preview cards */}
-      <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <div className="card flex flex-col items-center gap-2 py-4">
-          <span className="badge-safe">Safe</span>
-          <span className="text-xs text-gray-500">No threats</span>
-        </div>
-        <div className="card flex flex-col items-center gap-2 py-4">
-          <span className="badge-caution">Caution</span>
-          <span className="text-xs text-gray-500">Review needed</span>
-        </div>
-        <div className="card flex flex-col items-center gap-2 py-4">
-          <span className="badge-dangerous">Dangerous</span>
-          <span className="text-xs text-gray-500">Link defanged</span>
-        </div>
-        <div className="card flex flex-col items-center gap-2 py-4">
-          <span className="badge-critical">Critical</span>
-          <span className="text-xs text-gray-500">Blocked &amp; logged</span>
-        </div>
-      </div>
-    </section>
+      {/* Threat Level Cards */}
+      <Grid container spacing={2}>
+        {threatLevels.map((level) => (
+          <Grid size={{ xs: 6, sm: 3 }} key={level.label}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                textAlign: "center",
+                border: "1px solid",
+                borderColor: "divider",
+                transition: "border-color 0.2s",
+                "&:hover": { borderColor: "primary.main" },
+              }}
+            >
+              <Chip
+                icon={level.icon}
+                label={level.label}
+                color={level.color}
+                variant="outlined"
+                size="small"
+                sx={{ mb: 1.5 }}
+              />
+              <Typography variant="caption" display="block" color="text.secondary">
+                {level.desc}
+              </Typography>
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 }
 
+/* -------- 404 Page -------- */
 function NotFound() {
   return (
-    <section className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
-      <h1 className="text-6xl font-extrabold text-gray-700">404</h1>
-      <p className="mt-4 text-lg text-gray-400">Page not found.</p>
-      <a
-        href="/"
-        className="mt-6 text-sm font-medium text-brand-500 transition-colors hover:text-brand-400"
-      >
+    <Container
+      maxWidth="sm"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "60vh",
+        textAlign: "center",
+      }}
+    >
+      <Typography variant="h1" sx={{ fontSize: "6rem", color: "grey.800" }}>
+        404
+      </Typography>
+      <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
+        Page not found.
+      </Typography>
+      <Button variant="text" href="/" sx={{ textTransform: "none" }}>
         &larr; Back to Home
-      </a>
-    </section>
+      </Button>
+    </Container>
   );
 }

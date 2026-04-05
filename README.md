@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Material UI](https://img.shields.io/badge/Material_UI-6.x-007FFF?style=flat-square&logo=mui&logoColor=white)](https://mui.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)](#getting-started)
 
@@ -68,7 +68,7 @@ Built for organisations that need proactive phishing defence with full audit tra
 ┌─────────────────┐     ┌──────────────────┐     ┌──────────────────┐
 │   React 18    │────▶│   FastAPI       │────▶│   SQLite (async) │
 │   Vite        │     │   Python 3.11   │     │   aiosqlite      │
-│   Tailwind    │     │   JWT + RBAC     │     └──────────────────┘
+│ Material UI      │     │   JWT + RBAC     │     └──────────────────┘
 └─────────────────┘     └───────┬──────────┘
          Frontend              │              Backend
                                │
@@ -88,7 +88,7 @@ Built for organisations that need proactive phishing defence with full audit tra
 | Layer | Technology |
 |-------|-----------|
 | **Backend** | Python 3.11, FastAPI, Pydantic, aiosqlite |
-| **Frontend** | React 18, Vite, Tailwind CSS |
+| **Frontend** | React 18, Vite, Material UI 6 |
 | **Database** | SQLite (async via aiosqlite) |
 | **Auth** | JWT (HS256), Bcrypt, Role-Based Access Control |
 | **Threat Intel** | VirusTotal API, Google Safe Browsing, PhishTank |

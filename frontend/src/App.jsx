@@ -14,7 +14,7 @@ export default function App() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5">
             <span className="text-2xl" role="img" aria-label="shield">
-              \u{1F6E1}\u{FE0F}
+              🛡️
             </span>
             <span className="text-lg font-bold tracking-tight text-white">
               MailSentry

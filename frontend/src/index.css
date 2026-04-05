@@ -1,0 +1,77 @@
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base layer overrides */
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Default body styling — dark theme */
+  body {
+    @apply bg-gray-950 text-gray-100 min-h-screen;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  /* Focus ring for accessibility (keyboard users) */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500 rounded;
+  }
+
+  /* Remove default focus for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Scrollbar styling (Webkit browsers) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+}
+
+/* Reusable component layer */
+@layer components {
+  /* Threat level badge variants */
+  .badge-safe {
+    @apply bg-threat-safe/15 text-threat-safe border border-threat-safe/30 
+           px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-caution {
+    @apply bg-threat-caution/15 text-threat-caution border border-threat-caution/30 
+           px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-dangerous {
+    @apply bg-threat-dangerous/15 text-threat-dangerous border border-threat-dangerous/30 
+           px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-critical {
+    @apply bg-threat-critical/15 text-threat-critical border border-threat-critical/30 
+           px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-xl p-6 
+           shadow-lg shadow-black/20;
+  }
+}

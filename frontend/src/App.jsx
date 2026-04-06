@@ -15,6 +15,7 @@ import SecurityIcon from "@mui/icons-material/Security";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import DangerousIcon from "@mui/icons-material/Dangerous";
 import BlockIcon from "@mui/icons-material/Block";
+import Login from "./pages/Login";
 
 /* -------- Dark Theme -------- */
 const darkTheme = createTheme({
@@ -97,7 +98,8 @@ export default function App() {
         <Box component="main" sx={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
           </Routes>
         </Box>
 

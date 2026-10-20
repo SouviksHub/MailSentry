@@ -2,9 +2,9 @@
 
 # 🛡️ MailSentry
 
-**Enterprise Email Phishing Analysis Platform**
+**Email phishing analysis prototype**
 
-*Real-time threat intelligence, link neutralisation, and tamper-evident audit logging*
+*Exploring email security with React and a planned Python/FastAPI backend*
 
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
@@ -14,6 +14,14 @@
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)](#getting-started)
 
 </div>
+
+---
+
+## Project status
+
+**Early prototype.** This repository currently contains a React frontend with home and login pages, configuration files, and a backend scaffold. The threat-analysis services, working API endpoints, automated tests and production security controls described below are planned work.
+
+The remaining sections describe the intended design. Their feature lists and deployment examples should not be read as a verified, working release.
 
 ---
 
